@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font is loaded via Next.js font system */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Improved Typography */
+.cartoon-font {
+  font-family: var(--font-bangers), cursive;
+  letter-spacing: 1px;
+}
+
+.headline {
+  font-family: var(--font-bangers), cursive;
+  letter-spacing: 2px;
+  transform: skew(-5deg, 0);
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+.section-title {
+  font-family: var(--font-bangers), cursive;
+  letter-spacing: 1.5px;
+  color: #333;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #fcd34d;
+  border-radius: 2px;
+}
+
+.step-title {
+  font-family: var(--font-bangers), cursive;
+  letter-spacing: 1px;
+  transform: skew(-5deg, 0);
+  color: #333;
+}
+
+/* Enhanced Cartoon Button Styles */
+.cartoon-button {
+  @apply rounded-xl font-bold text-white;
+  transform: skew(-2deg, 0);
+  box-shadow: 0 6px 0 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cartoon-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+  pointer-events: none;
+}
+
+.cartoon-button:hover {
+  transform: skew(-2deg, 0) translateY(2px);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.3);
+}
+
+.cartoon-button:active {
+  transform: skew(-2deg, 0) translateY(4px);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.3);
+}
+
+.cartoon-button-outline {
+  @apply rounded-xl font-bold border-2 shadow-md;
+  transform: skew(-2deg, 0);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  border: 3px solid currentColor;
+  position: relative;
+}
+
+.cartoon-button-outline:hover {
+  transform: skew(-2deg, 0) translateY(2px);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.cartoon-button-outline:active {
+  transform: skew(-2deg, 0) translateY(4px);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Card Styles */
+.cartoon-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.1);
+  border: 3px solid rgba(0, 0, 0, 0.05);
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+}
+
+.cartoon-card:hover {
+  transform: translateY(-5px) rotate(1deg);
+  box-shadow: 0 12px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Fun Checkbox */
+.fun-checkbox {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 3px solid white;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  position: relative;
+}
+
+.fun-checkbox:checked {
+  background-color: #10b981;
+}
+
+.fun-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Fun Input Styles */
+.fun-input {
+  border-radius: 12px;
+  border: 3px solid #e5e7eb;
+  padding: 10px 16px;
+  font-size: 16px;
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.fun-input:focus {
+  border-color: #fcd34d;
+  box-shadow: 0 4px 0 0 rgba(252, 211, 77, 0.3);
+  outline: none;
+}
+
+/* Animated Elements */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Improved Header */
+.cartoon-header {
+  background: linear-gradient(to right, #fcd34d, #fbbf24);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styling */
+.cartoon-footer {
+  background: linear-gradient(to right, #1f2937, #111827);
+  box-shadow: 0 -4px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Steps */
+.progress-step {
+  position: relative;
+  z-index: 1;
+}
+
+.progress-step-active {
+  background-color: #10b981;
+  color: white;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+}
+
+.progress-step-inactive {
+  background-color: #e5e7eb;
+  color: #6b7280;
+}
+
+.progress-line {
+  height: 4px;
+  border-radius: 2px;
+}
+
+.progress-line-active {
+  background-color: #10b981;
+}
+
+.progress-line-inactive {
+  background-color: #e5e7eb;
+}
+
