@@ -15,8 +15,14 @@ const bangers = Bangers({
 export const metadata: Metadata = {
   title: "Stickers - Transforme suas fotos em adesivos divertidos",
   description: "Transforme suas fotos em adesivos divertidos e receba em casa!",
-  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
+}
+
+// Corrigido: Movido o viewport para seu próprio export
+export const viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  maximumScale: 1.0
 }
 
 export default function RootLayout({
@@ -34,7 +40,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-import './globals.css'
