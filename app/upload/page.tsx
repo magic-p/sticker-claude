@@ -1,26 +1,10 @@
 "use client"
 
-import type React from "react"
-
-import { useState, useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import ImageUploader from "@/components/image-uploader"
 
 export default function UploadPage() {
-  const fileInputRef = useRef<HTMLInputElement>(null)
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
-
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const filesArray = Array.from(e.target.files)
-      setSelectedFiles(filesArray)
-    }
-  }
-
-  const handleButtonClick = () => {
-    fileInputRef.current?.click()
-  }
-
   return (
     <main className="min-h-screen bg-white w-full overflow-x-hidden">
       {/* Header */}
@@ -57,87 +41,28 @@ export default function UploadPage() {
         </div>
       </header>
 
-      {/* Upload Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-amber-50 to-white">
+      {/* Main Content with Title and Description */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-amber-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h1 className="headline text-4xl md:text-5xl font-bold text-center mb-8">
               Envie suas fotos para transformar em adesivos
             </h1>
             <p className="text-center text-gray-700 text-xl mb-12 max-w-2xl mx-auto">
-              Selecione uma ou mais fotos para transformarmos em adesivos divertidos. Você poderá escolher seus
-              favoritos na próxima etapa.
+              Faça o upload de suas fotos e as transforme em adesivos personalizados com diferentes estilos!
             </p>
-
-            <div className="cartoon-card bg-white p-10 mb-12 relative">
-              <div className="border-3 border-dashed border-amber-300 rounded-2xl p-12 flex flex-col items-center justify-center bg-amber-50">
-                <div className="w-24 h-24 bg-amber-300 rounded-full flex items-center justify-center mb-6 shadow-lg">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="48"
-                    height="48"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-gray-800"
-                  >
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="17 8 12 3 7 8" />
-                    <line x1="12" x2="12" y1="3" y2="15" />
-                  </svg>
-                </div>
-                <p className="text-gray-700 text-xl mb-3 font-medium">Arraste e solte suas fotos aqui</p>
-                <p className="text-gray-500 text-lg mb-6">ou</p>
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleFileSelect}
-                  className="hidden"
-                  accept=".jpg,.jpeg,.png,.heic"
-                  multiple
-                />
-                <Button
-                  className="cartoon-button bg-blue-500 hover:bg-blue-600 transform hover:-translate-y-1 transition-transform text-lg py-4 px-8"
-                  onClick={handleButtonClick}
-                >
-                  Selecionar Arquivos
-                </Button>
-                <p className="text-gray-500 text-sm mt-6">Formatos aceitos: JPG, PNG, HEIC - Tamanho máximo: 10MB</p>
-
-                {selectedFiles.length > 0 && (
-                  <div className="mt-6 w-full">
-                    <p className="font-medium mb-2">{selectedFiles.length} arquivo(s) selecionado(s):</p>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      {selectedFiles.map((file, index) => (
-                        <li key={index} className="bg-white p-2 rounded-md border border-gray-200">
-                          {file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-
-              {/* Decorative elements */}
-              <div className="absolute -top-5 -right-5 w-12 h-12 bg-yellow-300 rounded-full opacity-70"></div>
-              <div className="absolute -bottom-5 -left-5 w-12 h-12 bg-emerald-300 rounded-full opacity-70"></div>
-            </div>
-
-            <div className="flex flex-col md:flex-row gap-6 justify-center">
+            
+            {/* Integrated ImageUploader Component */}
+            <ImageUploader />
+            
+            {/* For when we don't have transformed images yet */}
+            <div className="flex flex-col md:flex-row gap-6 justify-center mt-4">
               <Link href="/" className="text-center" scroll={true}>
                 <Button
                   variant="outline"
                   className="cartoon-button-outline w-full md:w-auto transform hover:-translate-y-1 transition-transform text-lg py-3 px-8"
                 >
                   Voltar
-                </Button>
-              </Link>
-              <Link href="/selecao" className="text-center" scroll={true}>
-                <Button className="cartoon-button bg-emerald-500 hover:bg-emerald-600 w-full md:w-auto transform hover:-translate-y-1 transition-transform text-lg py-3 px-8">
-                  Continuar
                 </Button>
               </Link>
             </div>
@@ -161,4 +86,3 @@ export default function UploadPage() {
     </main>
   )
 }
-
