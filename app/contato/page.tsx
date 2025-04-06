@@ -1,10 +1,71 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import { toast } from "@/hooks/use-toast"
 
 export default function ContatoPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  })
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        toast({
+          title: "Sucesso!",
+          description: "Sua mensagem foi enviada com sucesso.",
+        })
+        // Limpar o formulário
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: ""
+        })
+      } else {
+        throw new Error(data.error || 'Erro ao enviar mensagem')
+      }
+    } catch (error) {
+      toast({
+        title: "Erro",
+        description: "Ocorreu um erro ao enviar sua mensagem. Tente novamente.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
   return (
     <main className="min-h-screen bg-white w-full overflow-x-hidden">
       {/* Header */}
@@ -131,37 +192,75 @@ export default function ContatoPage() {
               </div>
 
               <div className="cartoon-card bg-white p-6 md:p-8">
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-lg">
                       Nome Completo
                     </Label>
-                    <Input id="name" placeholder="Seu nome completo" className="fun-input" />
+                    <Input 
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Seu nome completo" 
+                      className="fun-input"
+                      required 
+                    />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-lg">
                       E-mail
                     </Label>
-                    <Input id="email" type="email" placeholder="seu@email.com" className="fun-input" />
+                    <Input 
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="seu@email.com" 
+                      className="fun-input"
+                      required 
+                    />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="subject" className="text-lg">
                       Assunto
                     </Label>
-                    <Input id="subject" placeholder="Assunto da mensagem" className="fun-input" />
+                    <Input 
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Assunto da mensagem" 
+                      className="fun-input"
+                      required 
+                    />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="message" className="text-lg">
                       Mensagem
                     </Label>
-                    <Textarea id="message" placeholder="Digite sua mensagem aqui..." rows={5} className="fun-input" />
+                    <Textarea 
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Digite sua mensagem aqui..." 
+                      rows={5} 
+                      className="fun-input"
+                      required 
+                    />
                   </div>
 
-                  <Button className="cartoon-button w-full bg-emerald-500 hover:bg-emerald-600 py-3 text-lg">
-                    Enviar Mensagem
+                  <Button 
+                    type="submit"
+                    className="cartoon-button w-full bg-emerald-500 hover:bg-emerald-600 py-3 text-lg"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Enviando..." : "Enviar Mensagem"}
                   </Button>
                 </form>
               </div>

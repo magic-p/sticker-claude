@@ -20,7 +20,17 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    // Removido o 'domains' para evitar o aviso de depreciação
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'hebbkx1anhila5yf.public.blob.vercel-storage.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.vercel-storage.com',
+      }
+    ]
   },
   experimental: {
     webpackBuildWorker: true,

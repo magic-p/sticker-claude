@@ -19,6 +19,10 @@ const config = {
       },
     },
     extend: {
+      // Adicionando border-3
+      borderWidth: {
+        '3': '3px',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -90,4 +94,3 @@ const config = {
 } satisfies Config
 
 export default config
-

@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Font is loaded via Next.js font system */
+/* Font is loaded via Next.js font  system */   
+
 
 @layer base {
   :root {
@@ -66,178 +67,123 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
 }
 
 /* Improved Typography */
 .cartoon-font {
-  font-family: var(--font-bangers), cursive;
-  letter-spacing: 1px;
+  font-family: var(--font-bangers), system-ui, sans-serif;
+  letter-spacing: 0.05em;
 }
 
 .headline {
-  font-family: var(--font-bangers), cursive;
-  letter-spacing: 2px;
+  @apply cartoon-font text-neutral-800 dark:text-neutral-100;
+  letter-spacing: 0.1em;
   transform: skew(-5deg, 0);
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
-  color: #333;
+  text-shadow: 3px 3px 0 rgb(0 0 0 / 0.2);
 }
 
 .section-title {
-  font-family: var(--font-bangers), cursive;
-  letter-spacing: 1.5px;
-  color: #333;
-  position: relative;
-  display: inline-block;
+  @apply cartoon-font text-neutral-800 dark:text-neutral-100 relative inline-block;
+  letter-spacing: 0.075em;
 }
 
 .section-title::after {
   content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background-color: #fcd34d;
-  border-radius: 2px;
+  @apply absolute -bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-amber-300 rounded-full;
 }
 
 .step-title {
-  font-family: var(--font-bangers), cursive;
-  letter-spacing: 1px;
+  @apply cartoon-font text-neutral-800 dark:text-neutral-100;
+  letter-spacing: 0.05em;
   transform: skew(-5deg, 0);
-  color: #333;
 }
 
 /* Enhanced Cartoon Button Styles */
 .cartoon-button {
-  @apply rounded-xl font-bold text-white;
+  @apply rounded-xl font-bold text-white relative overflow-hidden transition-all duration-200 
+         border-3 border-black/10 shadow-[0_6px_0_0_rgba(0,0,0,0.3)];
   transform: skew(-2deg, 0);
-  box-shadow: 0 6px 0 0 rgba(0, 0, 0, 0.3);
-  transition: all 0.2s ease;
-  border: 3px solid rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
 }
 
 .cartoon-button::before {
   content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
-  pointer-events: none;
+  @apply absolute inset-0 bg-gradient-to-b from-white/20 to-transparent pointer-events-none;
 }
 
 .cartoon-button:hover {
+  @apply shadow-[0_4px_0_0_rgba(0,0,0,0.3)] -translate-y-0.5;
   transform: skew(-2deg, 0) translateY(2px);
-  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.3);
 }
 
 .cartoon-button:active {
+  @apply shadow-[0_2px_0_0_rgba(0,0,0,0.3)] translate-y-0.5;
   transform: skew(-2deg, 0) translateY(4px);
-  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.3);
 }
 
 .cartoon-button-outline {
-  @apply rounded-xl font-bold border-2 shadow-md;
+  @apply rounded-xl font-bold border-3 border-current shadow-md transition-all duration-200
+         relative shadow-[0_4px_0_0_rgba(0,0,0,0.2)];
   transform: skew(-2deg, 0);
-  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
-  border: 3px solid currentColor;
-  position: relative;
 }
 
 .cartoon-button-outline:hover {
+  @apply shadow-[0_2px_0_0_rgba(0,0,0,0.2)] -translate-y-0.5;
   transform: skew(-2deg, 0) translateY(2px);
-  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
 }
 
 .cartoon-button-outline:active {
+  @apply shadow-none translate-y-0.5;
   transform: skew(-2deg, 0) translateY(4px);
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Card Styles */
 .cartoon-card {
-  border-radius: 16px;
-  box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.1);
-  border: 3px solid rgba(0, 0, 0, 0.05);
-  transform: rotate(0deg);
-  transition: all 0.3s ease;
+  @apply rounded-2xl border-3 border-black/5 transition-all duration-300
+         shadow-[0_8px_0_0_rgba(0,0,0,0.1)];
 }
 
 .cartoon-card:hover {
-  transform: translateY(-5px) rotate(1deg);
-  box-shadow: 0 12px 0 0 rgba(0, 0, 0, 0.1);
+  @apply -translate-y-1.5 rotate-1 shadow-[0_12px_0_0_rgba(0,0,0,0.1)];
 }
 
-/* Fun Checkbox */
+/* Fun  Checkbox */
 .fun-checkbox {
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  border: 3px solid white;
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  position: relative;
+  @apply appearance-none w-6 h-6 rounded-lg border-3 border-white bg-white/50
+         shadow-[0_2px_4px_rgba(0,0,0,0.2)] cursor-pointer relative transition-colors;
 }
 
 .fun-checkbox:checked {
-  background-color: #10b981;
+  @apply bg-emerald-500;
 }
 
 .fun-checkbox:checked::after {
   content: "✓";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+         text-white font-bold text-base;
 }
 
 /* Fun Input Styles */
 .fun-input {
-  border-radius: 12px;
-  border: 3px solid #e5e7eb;
-  padding: 10px 16px;
-  font-size: 16px;
-  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
+  @apply rounded-xl border-3 border-gray-200 px-4 py-2.5 text-base
+         shadow-[0_4px_0_0_rgba(0,0,0,0.05)] transition-all duration-200;
 }
 
 .fun-input:focus {
-  border-color: #fcd34d;
-  box-shadow: 0 4px 0 0 rgba(252, 211, 77, 0.3);
-  outline: none;
+  @apply border-amber-300 shadow-[0_4px_0_0_rgba(252,211,77,0.3)] outline-none;
 }
 
 /* Animated Elements */
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .float-animation {
@@ -246,50 +192,39 @@
 
 /* Improved Header */
 .cartoon-header {
-  background: linear-gradient(to right, #fcd34d, #fbbf24);
-  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+  @apply bg-gradient-to-r from-amber-300 to-amber-400
+         shadow-[0_4px_0_0_rgba(0,0,0,0.1)] w-full max-w-full overflow-x-hidden;
 }
 
 /* Footer Styling */
 .cartoon-footer {
-  background: linear-gradient(to right, #1f2937, #111827);
-  box-shadow: 0 -4px 0 0 rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+  @apply bg-gradient-to-r from-gray-800 to-gray-900
+         shadow-[0_-4px_0_0_rgba(0,0,0,0.1)] w-full max-w-full overflow-x-hidden;
 }
 
 /* Progress Steps */
 .progress-step {
-  position: relative;
-  z-index: 1;
+  @apply relative z-[1];
 }
 
 .progress-step-active {
-  background-color: #10b981;
-  color: white;
-  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+  @apply bg-emerald-500 text-white shadow-[0_0_0_4px_rgba(16,185,129,0.2)];
 }
 
 .progress-step-inactive {
-  background-color: #e5e7eb;
-  color: #6b7280;
+  @apply bg-gray-200 text-gray-500;
 }
 
 .progress-line {
-  height: 4px;
-  border-radius: 2px;
+  @apply h-1 rounded-full;
 }
 
 .progress-line-active {
-  background-color: #10b981;
+  @apply bg-emerald-500;
 }
 
 .progress-line-inactive {
-  background-color: #e5e7eb;
+  @apply bg-gray-200;
 }
 
 /* Fix for mobile responsiveness */
@@ -315,23 +250,26 @@ section {
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .headline {
-    font-size: 2.5rem !important;
-    line-height: 1.2;
+    @apply text-[2.5rem] leading-tight;
   }
 
   .section-title {
-    font-size: 2rem !important;
+    @apply text-[2rem];
   }
 
   .cartoon-card {
-    margin-left: auto;
-    margin-right: auto;
+    @apply mx-auto;
   }
 
   .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    width: 100%;
+    @apply px-4 w-full;
+  }
+}
+
+/* Responsiveness */
+@layer utilities {
+  .responsive-container {
+    @apply w-full max-w-full overflow-x-hidden;
   }
 }
 
