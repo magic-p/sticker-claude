@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen w-full overflow-x-hidden">
       {/* Header */}
-      <header className="cartoon-header py-4 sticky top-0 z-50 bg-white">
+      <header className="cartoon-header py-4 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center px-4">
-          <div className="text-5xl font-bold text-orange-700">
+          <div className="text-4xl md:text-5xl font-bold text-orange-700">
             <Link href="/">
               <span className="cartoon-font font-extrabold tracking-tighter">STICKERS</span>
             </Link>
@@ -51,28 +51,40 @@ export default function Home() {
                 Receba em casa seus momentos favoritos em forma de adesivos!
               </p>
               <div className="pt-6">
-                <Link href="/upload">
+                <Link href="/upload" scroll={true}>
                   <Button className="cartoon-button bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-10 text-xl transform hover:-translate-y-1 transition-transform">
                     Começar Agora
                   </Button>
                 </Link>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative mx-auto md:mx-0 max-w-md md:max-w-full px-8 md:px-12 py-8">
               <div className="relative z-10 transform rotate-3 float-animation">
                 <div className="relative">
-                  <div className="w-[500px] h-[375px] bg-gray-200 rounded-2xl shadow-xl border-8 border-white flex items-center justify-center">
-                    <span className="text-gray-500">Imagem de exemplo</span>
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG-20250103-WA0081.jpg-p9u3oblTOCxBlWVs9s8mz8fapxX8A4.jpeg"
+                    alt="Foto original de amigos em um restaurante"
+                    width={500}
+                    height={375}
+                    className="rounded-2xl shadow-xl border-8 border-white"
+                  />
+                  <div className="absolute -bottom-12 -right-12 md:-bottom-16 md:-right-16 transform -rotate-6">
+                    <Image
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Clipped_image_20250401_224443-rH7pItoFhVtisXi0bHSgHg4HUpMMvo.png"
+                      alt="Versão adesivo cartoon"
+                      width={150}
+                      height={150}
+                      className="drop-shadow-2xl"
+                    />
                   </div>
-                  <div className="absolute -bottom-16 -right-16 transform -rotate-6">
-                    <div className="w-[180px] h-[180px] bg-gray-300 rounded-full flex items-center justify-center">
-                      <span className="text-gray-500">Sticker 1</span>
-                    </div>
-                  </div>
-                  <div className="absolute -top-12 -right-12 transform rotate-12">
-                    <div className="w-[150px] h-[150px] bg-gray-300 rounded-full flex items-center justify-center">
-                      <span className="text-gray-500">Sticker 2</span>
-                    </div>
+                  <div className="absolute -top-10 -left-10 md:-top-12 md:-left-12 transform rotate-12">
+                    <Image
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Clipped_image_20250401_224438-d4Q7ps3At2JovjXQthvh8VB03Tg4UJ.png"
+                      alt="Versão adesivo cartoon"
+                      width={130}
+                      height={130}
+                      className="drop-shadow-2xl"
+                    />
                   </div>
                 </div>
               </div>
@@ -89,7 +101,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="section-title text-4xl font-bold text-center mb-16">Como Funciona</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-            <div className="flex flex-col items-center text-center cartoon-card bg-white p-8 rounded-lg shadow-md hover:bg-amber-50 transition-colors">
+            <div className="flex flex-col items-center text-center cartoon-card bg-white p-8 hover:bg-amber-50 transition-colors">
               <div className="bg-gradient-to-br from-yellow-300 to-yellow-400 p-6 rounded-full mb-6 w-24 h-24 flex items-center justify-center shadow-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +124,7 @@ export default function Home() {
               <p className="text-lg">Selecione suas imagens favoritas.</p>
             </div>
 
-            <div className="flex flex-col items-center text-center cartoon-card bg-white p-8 rounded-lg shadow-md hover:bg-amber-50 transition-colors">
+            <div className="flex flex-col items-center text-center cartoon-card bg-white p-8 hover:bg-amber-50 transition-colors">
               <div className="bg-gradient-to-br from-yellow-300 to-yellow-400 p-6 rounded-full mb-6 w-24 h-24 flex items-center justify-center shadow-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -129,11 +141,11 @@ export default function Home() {
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
-              <h3 className="step-title text-2xl font-bold mb-4">SELECIONE SEUS FAVORITOS</h3>
-              <p className="text-lg">Escolha os estilos que mais gostou.</p>
+              <h3 className="step-title text-2xl font-bold mb-4">ESCOLHA O QUE VIRAR ADESIVO</h3>
+              <p className="text-lg">Selecione pessoas e objetos das suas fotos.</p>
             </div>
 
-            <div className="flex flex-col items-center text-center cartoon-card bg-white p-8 rounded-lg shadow-md hover:bg-amber-50 transition-colors">
+            <div className="flex flex-col items-center text-center cartoon-card bg-white p-8 hover:bg-amber-50 transition-colors">
               <div className="bg-gradient-to-br from-yellow-300 to-yellow-400 p-6 rounded-full mb-6 w-24 h-24 flex items-center justify-center shadow-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +178,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="section-title text-4xl font-bold text-center mb-6">Veja como seus adesivos podem ficar:</h2>
           <p className="text-center text-xl mb-16 max-w-3xl mx-auto">
-            Transformamos suas memórias em adesivos com diferentes estilos
+            Nossa IA identifica pessoas e objetos nas suas fotos e os transforma em adesivos divertidos
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -188,14 +200,14 @@ export default function Home() {
                 <div className="relative">
                   <Image
                     src="/images/simpsons-style.png"
-                    alt="Estilo Simpsons"
+                    alt="Elementos identificados"
                     width={250}
                     height={250}
                     className="rounded-xl border-4 border-white shadow-lg mx-auto"
                   />
                   <div className="absolute -top-3 -left-3 w-8 h-8 bg-emerald-300 rounded-full"></div>
                 </div>
-                <p className="text-center font-bold mt-4 text-lg">Estilo Simpsons</p>
+                <p className="text-center font-bold mt-4 text-lg">Elementos identificados</p>
               </div>
             </div>
 
@@ -217,14 +229,14 @@ export default function Home() {
                 <div className="relative">
                   <Image
                     src="/images/cartoon-style.png"
-                    alt="Estilo Cartoon"
+                    alt="Elementos identificados"
                     width={250}
                     height={250}
                     className="rounded-xl border-4 border-white shadow-lg mx-auto"
                   />
                   <div className="absolute -top-3 -left-3 w-8 h-8 bg-emerald-300 rounded-full"></div>
                 </div>
-                <p className="text-center font-bold mt-4 text-lg">Estilo Cartoon</p>
+                <p className="text-center font-bold mt-4 text-lg">Elementos identificados</p>
               </div>
             </div>
           </div>
@@ -234,12 +246,14 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-b from-amber-200 to-amber-300 relative overflow-hidden">
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="section-title text-5xl font-bold mb-8">Pronto para receber seus adesivos?</h2>
-          <Link href="/upload">
-            <Button className="cartoon-button bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-12 text-2xl transform hover:-translate-y-1 transition-transform">
-              Transformar Minhas Fotos Agora!
-            </Button>
-          </Link>
+          <div className="flex flex-col items-center justify-center gap-8">
+            <h2 className="headline text-4xl md:text-5xl font-bold">Pronto para receber seus adesivos?</h2>
+            <Link href="/upload" scroll={true}>
+              <Button className="cartoon-button bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-5 px-12 text-xl transform hover:-translate-y-1 transition-transform">
+                Transformar Minhas Fotos Agora!
+              </Button>
+            </Link>
+          </div>
         </div>
         {/* Decorative elements */}
         <div className="absolute top-10 left-10 w-20 h-20 bg-yellow-400 rounded-full opacity-30"></div>
@@ -252,7 +266,7 @@ export default function Home() {
       <footer id="contato" className="cartoon-footer text-white py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-            <Link href="/contato" className="hover:text-amber-300 text-lg transition-colors">
+            <Link href="/contato" className="hover:text-amber-300 text-lg transition-colors" scroll={true}>
               Contato
             </Link>
           </div>

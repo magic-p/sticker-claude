@@ -15,7 +15,8 @@ const bangers = Bangers({
 export const metadata: Metadata = {
   title: "Stickers - Transforme suas fotos em adesivos divertidos",
   description: "Transforme suas fotos em adesivos divertidos e receba em casa!",
-  generator: 'v0.dev'
+  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -25,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.className} ${bangers.variable}`}>
+      <body className={`${inter.className} ${bangers.variable} w-full overflow-x-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

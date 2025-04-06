@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button"
 
 export default function SelecaoPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white w-full overflow-x-hidden">
       {/* Header */}
       <header className="cartoon-header py-4 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center px-4">
-          <div className="text-5xl font-bold text-orange-700">
+          <div className="text-4xl md:text-5xl font-bold text-orange-700">
             <Link href="/">
               <span className="cartoon-font font-extrabold tracking-tighter">STICKERS</span>
             </Link>
@@ -44,136 +44,136 @@ export default function SelecaoPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h1 className="headline text-4xl md:text-5xl font-bold text-center mb-6">
-              Escolha seus adesivos favoritos
+              Escolha o que vai virar adesivo
             </h1>
             <p className="text-center text-gray-700 text-xl mb-16 max-w-3xl mx-auto">
-              Transformamos suas fotos em diferentes estilos. Selecione os que você mais gostou para receber em casa!
+              Selecione as pessoas e objetos que você mais gostou para receber em casa
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-              {/* Sticker Option 1 */}
+              {/* Element Option 1 */}
               <div className="cartoon-card bg-white overflow-hidden transform transition-all hover:scale-105">
                 <div className="relative">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Clipped_image_20250401_224443-rH7pItoFhVtisXi0bHSgHg4HUpMMvo.png"
-                    alt="Estilo Cartoon"
+                    alt="Pessoa com prato de comida"
                     width={400}
                     height={400}
                     className="w-full h-auto"
                   />
                   <div className="absolute top-4 right-4">
-                    <input type="checkbox" id="sticker1" className="fun-checkbox" />
+                    <input type="checkbox" id="element1" className="fun-checkbox" />
                   </div>
                 </div>
                 <div className="p-6 bg-gradient-to-b from-white to-amber-50">
-                  <h3 className="cartoon-font font-bold text-xl mb-2">Estilo Cartoon</h3>
-                  <p className="text-gray-600">Transformação em estilo cartoon colorido</p>
+                  <h3 className="cartoon-font font-bold text-xl mb-2">Pessoa com prato</h3>
+                  <p className="text-gray-600">Da foto "Jantar com amigos"</p>
                 </div>
               </div>
 
-              {/* Sticker Option 2 */}
+              {/* Element Option 2 */}
               <div className="cartoon-card bg-white overflow-hidden transform transition-all hover:scale-105">
                 <div className="relative">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Clipped_image_20250401_224438-d4Q7ps3At2JovjXQthvh8VB03Tg4UJ.png"
-                    alt="Estilo Cartoon 2"
+                    alt="Pessoa com polegar para cima"
                     width={400}
                     height={400}
                     className="w-full h-auto"
                   />
                   <div className="absolute top-4 right-4">
-                    <input type="checkbox" id="sticker2" className="fun-checkbox" />
+                    <input type="checkbox" id="element2" className="fun-checkbox" />
                   </div>
                 </div>
                 <div className="p-6 bg-gradient-to-b from-white to-amber-50">
-                  <h3 className="cartoon-font font-bold text-xl mb-2">Estilo Cartoon</h3>
-                  <p className="text-gray-600">Transformação em estilo cartoon com contornos</p>
+                  <h3 className="cartoon-font font-bold text-xl mb-2">Pessoa com polegar para cima</h3>
+                  <p className="text-gray-600">Da foto "Jantar com amigos"</p>
                 </div>
               </div>
 
-              {/* Sticker Option 3 */}
+              {/* Element Option 3 */}
               <div className="cartoon-card bg-white overflow-hidden transform transition-all hover:scale-105">
                 <div className="relative">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1743608007829-UbWuuJcf2qiewGuBAoIunLl650GNF8.png"
-                    alt="Estilo Cartoon Família"
+                    alt="Grupo de amigos"
                     width={400}
                     height={400}
                     className="w-full h-auto"
                   />
                   <div className="absolute top-4 right-4">
-                    <input type="checkbox" id="sticker3" className="fun-checkbox" />
+                    <input type="checkbox" id="element3" className="fun-checkbox" />
                   </div>
                 </div>
                 <div className="p-6 bg-gradient-to-b from-white to-amber-50">
-                  <h3 className="cartoon-font font-bold text-xl mb-2">Estilo Cartoon</h3>
-                  <p className="text-gray-600">Transformação em estilo cartoon detalhado</p>
+                  <h3 className="cartoon-font font-bold text-xl mb-2">Grupo de amigos</h3>
+                  <p className="text-gray-600">Da foto "Família reunida"</p>
                 </div>
               </div>
 
-              {/* Sticker Option 4 */}
+              {/* Element Option 4 */}
               <div className="cartoon-card bg-white overflow-hidden transform transition-all hover:scale-105">
                 <div className="relative">
                   <Image
                     src="/placeholder.svg?height=400&width=400"
-                    alt="Estilo Pixel Art"
+                    alt="Cachorro"
                     width={400}
                     height={400}
                     className="w-full h-auto"
                   />
                   <div className="absolute top-4 right-4">
-                    <input type="checkbox" id="sticker4" className="fun-checkbox" />
+                    <input type="checkbox" id="element4" className="fun-checkbox" />
                   </div>
                 </div>
                 <div className="p-6 bg-gradient-to-b from-white to-amber-50">
-                  <h3 className="cartoon-font font-bold text-xl mb-2">Estilo Pixel Art</h3>
-                  <p className="text-gray-600">Transformação em estilo pixel art retrô</p>
+                  <h3 className="cartoon-font font-bold text-xl mb-2">Cachorro</h3>
+                  <p className="text-gray-600">Da foto "Passeio no parque"</p>
                 </div>
               </div>
 
-              {/* Sticker Option 5 */}
+              {/* Element Option 5 */}
               <div className="cartoon-card bg-white overflow-hidden transform transition-all hover:scale-105">
                 <div className="relative">
                   <Image
                     src="/placeholder.svg?height=400&width=400"
-                    alt="Estilo Simpsons"
+                    alt="Bolo de aniversário"
                     width={400}
                     height={400}
                     className="w-full h-auto"
                   />
                   <div className="absolute top-4 right-4">
-                    <input type="checkbox" id="sticker5" className="fun-checkbox" />
+                    <input type="checkbox" id="element5" className="fun-checkbox" />
                   </div>
                 </div>
                 <div className="p-6 bg-gradient-to-b from-white to-amber-50">
-                  <h3 className="cartoon-font font-bold text-xl mb-2">Estilo Simpsons</h3>
-                  <p className="text-gray-600">Transformação em estilo Simpsons</p>
+                  <h3 className="cartoon-font font-bold text-xl mb-2">Bolo de aniversário</h3>
+                  <p className="text-gray-600">Da foto "Festa de aniversário"</p>
                 </div>
               </div>
 
-              {/* Sticker Option 6 */}
+              {/* Element Option 6 */}
               <div className="cartoon-card bg-white overflow-hidden transform transition-all hover:scale-105">
                 <div className="relative">
                   <Image
                     src="/placeholder.svg?height=400&width=400"
-                    alt="Estilo Anime"
+                    alt="Casal abraçado"
                     width={400}
                     height={400}
                     className="w-full h-auto"
                   />
                   <div className="absolute top-4 right-4">
-                    <input type="checkbox" id="sticker6" className="fun-checkbox" />
+                    <input type="checkbox" id="element6" className="fun-checkbox" />
                   </div>
                 </div>
                 <div className="p-6 bg-gradient-to-b from-white to-amber-50">
-                  <h3 className="cartoon-font font-bold text-xl mb-2">Estilo Anime</h3>
-                  <p className="text-gray-600">Transformação em estilo anime japonês</p>
+                  <h3 className="cartoon-font font-bold text-xl mb-2">Casal abraçado</h3>
+                  <p className="text-gray-600">Da foto "Viagem à praia"</p>
                 </div>
               </div>
             </div>
 
             <div className="flex flex-col md:flex-row gap-6 justify-center">
-              <Link href="/upload" className="text-center">
+              <Link href="/upload" className="text-center" scroll={true}>
                 <Button
                   variant="outline"
                   className="cartoon-button-outline w-full md:w-auto transform hover:-translate-y-1 transition-transform text-lg py-3 px-8"
@@ -181,9 +181,9 @@ export default function SelecaoPage() {
                   Voltar
                 </Button>
               </Link>
-              <Link href="/checkout/carrinho" className="text-center">
+              <Link href="/estilos" className="text-center" scroll={true}>
                 <Button className="cartoon-button bg-emerald-500 hover:bg-emerald-600 w-full md:w-auto transform hover:-translate-y-1 transition-transform text-lg py-3 px-8">
-                  Continuar para o Carrinho
+                  Continuar para Estilos
                 </Button>
               </Link>
             </div>
@@ -195,7 +195,7 @@ export default function SelecaoPage() {
       <footer className="cartoon-footer text-white py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-            <Link href="/contato" className="hover:text-amber-300 text-lg transition-colors">
+            <Link href="/contato" className="hover:text-amber-300 text-lg transition-colors" scroll={true}>
               Contato
             </Link>
           </div>

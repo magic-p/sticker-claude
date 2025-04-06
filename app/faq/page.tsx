@@ -4,32 +4,29 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 export default function FaqPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white w-full overflow-x-hidden">
       {/* Header */}
-      <header className="bg-amber-300 py-4">
+      <header className="cartoon-header py-4 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center px-4">
-          <div className="text-4xl font-bold text-orange-600">
+          <div className="text-4xl md:text-5xl font-bold text-orange-700">
             <Link href="/">
-              <span className="font-extrabold tracking-tighter">STICKERS</span>
+              <span className="cartoon-font font-extrabold tracking-tighter">STICKERS</span>
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/como-funciona" className="font-medium text-black hover:text-orange-700">
-              Como Funciona
-            </Link>
-            <Link href="/contato" className="font-medium text-black hover:text-orange-700">
+            <Link href="/contato" className="cartoon-font font-medium text-black hover:text-orange-700 text-lg">
               Contato
             </Link>
           </nav>
           <button className="md:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="28"
+              height="28"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
               className="lucide lucide-menu"
@@ -176,7 +173,7 @@ export default function FaqPage() {
 
             <div className="text-center">
               <p className="text-gray-600 mb-6">Não encontrou a resposta que procurava? Entre em contato conosco!</p>
-              <Link href="/contato">
+              <Link href="/contato" scroll={true}>
                 <Button className="bg-emerald-500 hover:bg-emerald-600">Falar com o Suporte</Button>
               </Link>
             </div>
@@ -188,13 +185,13 @@ export default function FaqPage() {
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-            <Link href="/termos-de-uso" className="hover:text-amber-300">
+            <Link href="/termos-de-uso" className="hover:text-amber-300" scroll={true}>
               Termos de Uso
             </Link>
-            <Link href="/politica-de-privacidade" className="hover:text-amber-300">
+            <Link href="/politica-de-privacidade" className="hover:text-amber-300" scroll={true}>
               Política de Privacidade
             </Link>
-            <Link href="/contato" className="hover:text-amber-300">
+            <Link href="/contato" className="hover:text-amber-300" scroll={true}>
               Contato
             </Link>
           </div>

@@ -5,11 +5,11 @@ import { Input } from "@/components/ui/input"
 
 export default function CarrinhoPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white w-full overflow-x-hidden">
       {/* Header */}
       <header className="cartoon-header py-4 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center px-4">
-          <div className="text-5xl font-bold text-orange-700">
+          <div className="text-4xl md:text-5xl font-bold text-orange-700">
             <Link href="/">
               <span className="cartoon-font font-extrabold tracking-tighter">STICKERS</span>
             </Link>
@@ -253,12 +253,12 @@ export default function CarrinhoPage() {
                     </div>
                   </div>
                   <div className="p-8">
-                    <Link href="/checkout/endereco">
+                    <Link href="/checkout/endereco" scroll={true}>
                       <Button className="cartoon-button w-full bg-emerald-500 hover:bg-emerald-600 transform hover:-translate-y-1 transition-transform text-lg py-3">
                         Continuar para Entrega
                       </Button>
                     </Link>
-                    <Link href="/selecao">
+                    <Link href="/selecao" scroll={true}>
                       <Button variant="link" className="w-full mt-4 text-gray-600 hover:text-gray-900">
                         Voltar para Seleção
                       </Button>
@@ -275,7 +275,7 @@ export default function CarrinhoPage() {
       <footer className="cartoon-footer text-white py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-            <Link href="/contato" className="hover:text-amber-300 text-lg transition-colors">
+            <Link href="/contato" className="hover:text-amber-300 text-lg transition-colors" scroll={true}>
               Contato
             </Link>
           </div>

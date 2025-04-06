@@ -248,12 +248,18 @@
 .cartoon-header {
   background: linear-gradient(to right, #fcd34d, #fbbf24);
   box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Footer Styling */
 .cartoon-footer {
   background: linear-gradient(to right, #1f2937, #111827);
   box-shadow: 0 -4px 0 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Progress Steps */
@@ -284,5 +290,48 @@
 
 .progress-line-inactive {
   background-color: #e5e7eb;
+}
+
+/* Fix for mobile responsiveness */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+section {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .headline {
+    font-size: 2.5rem !important;
+    line-height: 1.2;
+  }
+
+  .section-title {
+    font-size: 2rem !important;
+  }
+
+  .cartoon-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+  }
 }
 

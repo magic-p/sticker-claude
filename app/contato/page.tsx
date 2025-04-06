@@ -6,32 +6,32 @@ import { Textarea } from "@/components/ui/textarea"
 
 export default function ContatoPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white w-full overflow-x-hidden">
       {/* Header */}
-      <header className="bg-amber-300 py-4">
+      <header className="cartoon-header py-4 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center px-4">
-          <div className="text-4xl font-bold text-orange-600">
+          <div className="text-4xl md:text-5xl font-bold text-orange-700">
             <Link href="/">
-              <span className="font-extrabold tracking-tighter">STICKERS</span>
+              <span className="cartoon-font font-extrabold tracking-tighter">STICKERS</span>
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/como-funciona" className="font-medium text-black hover:text-orange-700">
-              Como Funciona
-            </Link>
-            <Link href="/contato" className="font-medium text-black hover:text-orange-700 underline">
+            <Link
+              href="/contato"
+              className="cartoon-font font-medium text-black hover:text-orange-700 text-lg underline"
+            >
               Contato
             </Link>
           </nav>
           <button className="md:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="28"
+              height="28"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
               className="lucide lucide-menu"
@@ -45,20 +45,20 @@ export default function ContatoPage() {
       </header>
 
       {/* Contact Section */}
-      <section className="py-16 bg-amber-50">
+      <section className="py-16 bg-gradient-to-b from-amber-300 to-amber-200 w-full">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
               <div>
-                <h1 className="text-3xl font-bold mb-6">Entre em Contato</h1>
-                <p className="text-gray-600 mb-8">
+                <h1 className="headline text-3xl md:text-4xl font-bold mb-6">Entre em Contato</h1>
+                <p className="text-gray-700 mb-8 text-lg">
                   Tem alguma dúvida, sugestão ou precisa de ajuda com seu pedido? Preencha o formulário ao lado e nossa
                   equipe entrará em contato o mais breve possível.
                 </p>
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-amber-300 p-3 rounded-full">
+                    <div className="bg-amber-400 p-3 rounded-full shadow-md">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -76,13 +76,13 @@ export default function ContatoPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-bold">E-mail</h3>
-                      <p className="text-gray-600">contato@stickers.com.br</p>
+                      <h3 className="font-bold text-lg">E-mail</h3>
+                      <p className="text-gray-700">contato@stickers.com.br</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="bg-amber-300 p-3 rounded-full">
+                    <div className="bg-amber-400 p-3 rounded-full shadow-md">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -99,13 +99,13 @@ export default function ContatoPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-bold">Telefone</h3>
-                      <p className="text-gray-600">(11) 99999-9999</p>
+                      <h3 className="font-bold text-lg">Telefone</h3>
+                      <p className="text-gray-700">(11) 99999-9999</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="bg-amber-300 p-3 rounded-full">
+                    <div className="bg-amber-400 p-3 rounded-full shadow-md">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -123,36 +123,46 @@ export default function ContatoPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-bold">Horário de Atendimento</h3>
-                      <p className="text-gray-600">Segunda a Sexta: 9h às 18h</p>
+                      <h3 className="font-bold text-lg">Horário de Atendimento</h3>
+                      <p className="text-gray-700">Segunda a Sexta: 9h às 18h</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white rounded-lg shadow-md p-8">
+              <div className="cartoon-card bg-white p-6 md:p-8">
                 <form className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Nome Completo</Label>
-                    <Input id="name" placeholder="Seu nome completo" />
+                    <Label htmlFor="name" className="text-lg">
+                      Nome Completo
+                    </Label>
+                    <Input id="name" placeholder="Seu nome completo" className="fun-input" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email">E-mail</Label>
-                    <Input id="email" type="email" placeholder="seu@email.com" />
+                    <Label htmlFor="email" className="text-lg">
+                      E-mail
+                    </Label>
+                    <Input id="email" type="email" placeholder="seu@email.com" className="fun-input" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Assunto</Label>
-                    <Input id="subject" placeholder="Assunto da mensagem" />
+                    <Label htmlFor="subject" className="text-lg">
+                      Assunto
+                    </Label>
+                    <Input id="subject" placeholder="Assunto da mensagem" className="fun-input" />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message">Mensagem</Label>
-                    <Textarea id="message" placeholder="Digite sua mensagem aqui..." rows={5} />
+                    <Label htmlFor="message" className="text-lg">
+                      Mensagem
+                    </Label>
+                    <Textarea id="message" placeholder="Digite sua mensagem aqui..." rows={5} className="fun-input" />
                   </div>
 
-                  <Button className="w-full bg-emerald-500 hover:bg-emerald-600">Enviar Mensagem</Button>
+                  <Button className="cartoon-button w-full bg-emerald-500 hover:bg-emerald-600 py-3 text-lg">
+                    Enviar Mensagem
+                  </Button>
                 </form>
               </div>
             </div>
@@ -161,13 +171,13 @@ export default function ContatoPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white w-full">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-12">Perguntas Frequentes</h2>
+            <h2 className="section-title text-3xl font-bold mb-12">Perguntas Frequentes</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-              <div className="bg-gray-50 rounded-lg p-6">
+              <div className="cartoon-card bg-gray-50 p-6">
                 <h3 className="font-bold text-lg mb-2">Como rastrear meu pedido?</h3>
                 <p className="text-gray-600">
                   Você receberá um e-mail com o código de rastreio assim que seu pedido for enviado. Também pode acessar
@@ -175,14 +185,14 @@ export default function ContatoPage() {
                 </p>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6">
+              <div className="cartoon-card bg-gray-50 p-6">
                 <h3 className="font-bold text-lg mb-2">Qual o prazo de entrega?</h3>
                 <p className="text-gray-600">
                   O prazo de entrega varia de 7 a 10 dias úteis, dependendo da sua localização.
                 </p>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6">
+              <div className="cartoon-card bg-gray-50 p-6">
                 <h3 className="font-bold text-lg mb-2">Posso cancelar meu pedido?</h3>
                 <p className="text-gray-600">
                   Pedidos podem ser cancelados em até 24 horas após a compra, desde que ainda não tenham entrado em
@@ -190,14 +200,14 @@ export default function ContatoPage() {
                 </p>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6">
+              <div className="cartoon-card bg-gray-50 p-6">
                 <h3 className="font-bold text-lg mb-2">Quais formas de pagamento são aceitas?</h3>
                 <p className="text-gray-600">Aceitamos cartões de crédito, Pix e boleto bancário.</p>
               </div>
             </div>
 
-            <Link href="/faq">
-              <Button variant="outline" className="mt-8">
+            <Link href="/faq" scroll={true}>
+              <Button variant="outline" className="cartoon-button-outline mt-10 py-3 px-6">
                 Ver Todas as Perguntas
               </Button>
             </Link>
@@ -206,21 +216,15 @@ export default function ContatoPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
+      <footer className="cartoon-footer text-white py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-            <Link href="/termos-de-uso" className="hover:text-amber-300">
-              Termos de Uso
-            </Link>
-            <Link href="/politica-de-privacidade" className="hover:text-amber-300">
-              Política de Privacidade
-            </Link>
-            <Link href="/contato" className="hover:text-amber-300">
+            <Link href="/contato" className="hover:text-amber-300 text-lg transition-colors" scroll={true}>
               Contato
             </Link>
           </div>
-          <div className="text-center mt-6">
-            <p>&copy; {new Date().getFullYear()} Stickers. Todos os direitos reservados.</p>
+          <div className="text-center mt-8">
+            <p className="text-gray-400">&copy; {new Date().getFullYear()} Stickers. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>

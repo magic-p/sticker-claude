@@ -1,13 +1,32 @@
+"use client"
+
+import type React from "react"
+
+import { useState, useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export default function UploadPage() {
+  const fileInputRef = useRef<HTMLInputElement>(null)
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const filesArray = Array.from(e.target.files)
+      setSelectedFiles(filesArray)
+    }
+  }
+
+  const handleButtonClick = () => {
+    fileInputRef.current?.click()
+  }
+
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white w-full overflow-x-hidden">
       {/* Header */}
       <header className="cartoon-header py-4 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center px-4">
-          <div className="text-5xl font-bold text-orange-700">
+          <div className="text-4xl md:text-5xl font-bold text-orange-700">
             <Link href="/">
               <span className="cartoon-font font-extrabold tracking-tighter">STICKERS</span>
             </Link>
@@ -72,10 +91,34 @@ export default function UploadPage() {
                 </div>
                 <p className="text-gray-700 text-xl mb-3 font-medium">Arraste e solte suas fotos aqui</p>
                 <p className="text-gray-500 text-lg mb-6">ou</p>
-                <Button className="cartoon-button bg-blue-500 hover:bg-blue-600 transform hover:-translate-y-1 transition-transform text-lg py-4 px-8">
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleFileSelect}
+                  className="hidden"
+                  accept=".jpg,.jpeg,.png,.heic"
+                  multiple
+                />
+                <Button
+                  className="cartoon-button bg-blue-500 hover:bg-blue-600 transform hover:-translate-y-1 transition-transform text-lg py-4 px-8"
+                  onClick={handleButtonClick}
+                >
                   Selecionar Arquivos
                 </Button>
                 <p className="text-gray-500 text-sm mt-6">Formatos aceitos: JPG, PNG, HEIC - Tamanho máximo: 10MB</p>
+
+                {selectedFiles.length > 0 && (
+                  <div className="mt-6 w-full">
+                    <p className="font-medium mb-2">{selectedFiles.length} arquivo(s) selecionado(s):</p>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                      {selectedFiles.map((file, index) => (
+                        <li key={index} className="bg-white p-2 rounded-md border border-gray-200">
+                          {file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               {/* Decorative elements */}
@@ -84,7 +127,7 @@ export default function UploadPage() {
             </div>
 
             <div className="flex flex-col md:flex-row gap-6 justify-center">
-              <Link href="/" className="text-center">
+              <Link href="/" className="text-center" scroll={true}>
                 <Button
                   variant="outline"
                   className="cartoon-button-outline w-full md:w-auto transform hover:-translate-y-1 transition-transform text-lg py-3 px-8"
@@ -92,7 +135,7 @@ export default function UploadPage() {
                   Voltar
                 </Button>
               </Link>
-              <Link href="/selecao" className="text-center">
+              <Link href="/selecao" className="text-center" scroll={true}>
                 <Button className="cartoon-button bg-emerald-500 hover:bg-emerald-600 w-full md:w-auto transform hover:-translate-y-1 transition-transform text-lg py-3 px-8">
                   Continuar
                 </Button>
@@ -106,7 +149,7 @@ export default function UploadPage() {
       <footer className="cartoon-footer text-white py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-            <Link href="/contato" className="hover:text-amber-300 text-lg transition-colors">
+            <Link href="/contato" className="hover:text-amber-300 text-lg transition-colors" scroll={true}>
               Contato
             </Link>
           </div>
